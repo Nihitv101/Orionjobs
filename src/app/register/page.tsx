@@ -27,7 +27,7 @@ const Register = ()=>{
 
             <Form.Item label='Register As' name="userType">
               <Radio.Group>
-                <Radio value="employer" >Employer</Radio>
+                <Radio value="employer" >Employe</Radio>
                 <Radio value="employee" >Employee</Radio>
               </Radio.Group>
             </Form.Item>
