@@ -2,6 +2,16 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
+
+
+import '../stylesheets/antdOverride.css';
+import '../stylesheets/layout.css';
+import '../stylesheets/commonClasses.css';
+
+
+import LayoutProvider from '@/components/LayoutProvider';
+
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -15,8 +25,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <LayoutProvider>
+      {children}
+    </LayoutProvider>
   )
 }
