@@ -3,6 +3,8 @@ import mongoose from 'mongoose';
 
 const connectDB = ()=>{
     try{
+
+
         mongoose.connect(process.env.MONGO_URL!);
 
         const connection = mongoose.connection

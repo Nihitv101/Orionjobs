@@ -1,15 +1,33 @@
 "use client"
 
-import {Button, Form, Radio} from 'antd';
+import {Button, Form, Radio, message} from 'antd';
 import Link from 'next/link';
+import axios from 'axios';
 
 
 
 
 const Register = ()=>{
 
-    const onFinish = (value:any)=>{
-        console.log("success", value);
+    const onFinish = async (value:any)=>{
+      try{
+        const response = await axios.post('/api/users/register', value);
+
+        if(response.data.success){
+          message.success("User Registered")
+        }
+      }
+
+      catch(error:any){
+
+
+        
+        console.log("eRROR", error);
+
+
+
+        message.error(error.response.data.message || "Something went wrong")
+      }
     }
 
 
