@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 
 
 
-// on login we will get the token
-
 
 // check for the token , if we dont have token and no public page then redirect to the login page
 
