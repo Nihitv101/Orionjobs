@@ -7,9 +7,13 @@ import { Inter } from 'next/font/google'
 import '../stylesheets/antdOverride.css';
 import '../stylesheets/layout.css';
 import '../stylesheets/commonClasses.css';
+import '../stylesheets/loader.css';
+
+
 
 
 import LayoutProvider from '@/components/LayoutProvider';
+import { ReduxProvider } from '@/components/ReduxProvider';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -25,8 +29,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <LayoutProvider>
-      {children}
-    </LayoutProvider>
+    <ReduxProvider>
+      <LayoutProvider>
+        {children}
+      </LayoutProvider>
+    </ReduxProvider>
   )
 }

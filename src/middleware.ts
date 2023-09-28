@@ -13,7 +13,7 @@ export async function middleware(request: NextRequest){
         const publicPage = request.nextUrl.pathname == '/login' || request.nextUrl.pathname == '/register';
 
         // if no token then redirect to the login page
-        const token = request.cookies.get("token");
+        const token = request.cookies.get("token")?.value;
         if(!token && !publicPage){
             return NextResponse.redirect(new URL('/login', request.nextUrl))
         }

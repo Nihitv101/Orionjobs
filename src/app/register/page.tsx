@@ -3,30 +3,36 @@
 import {Button, Form, Radio, message} from 'antd';
 import Link from 'next/link';
 import axios from 'axios';
+import { SetLoading } from '@/redux/loaderSlice';
+import {useDispatch} from 'react-redux';
 
 
 
 
 const Register = ()=>{
 
+
+  const dispatch = useDispatch();
+
+
     const onFinish = async (value:any)=>{
       try{
+
+        dispatch(SetLoading(false));
+
         const response = await axios.post('/api/users/register', value);
 
         if(response.data.success){
           message.success("User Registered")
         }
       }
-
       catch(error:any){
 
-
-        
         console.log("eRROR", error);
-
-
-
         message.error(error.response.data.message || "Something went wrong")
+      }
+      finally{
+        dispatch(SetLoading(false));
       }
     }
 

@@ -4,6 +4,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import {validateUser} from '@/helpers/validateJWT';
 import User from "@/models/user.model";
+import connectDB from "@/config/dbconfig";
+
+connectDB();
 
 
 export async function GET(request: NextRequest){
